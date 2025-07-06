@@ -1,0 +1,2 @@
+a = 24<42
+print("Above statement is not true"a)
