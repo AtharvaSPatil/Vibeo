@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
         type: String, //* Cloudinary
         required: [true, "avatar is required"],
     },
-    comerImage: {
+    coverImage: {
         type: String, //* Cloudinary
     },
     watchHistory: [
