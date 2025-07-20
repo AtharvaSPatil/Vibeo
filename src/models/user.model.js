@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String, //* Cloudinary
-        required: [true, "avatar is required"],
+        // required: [true, "avatar is required"],
     },
     coverImage: {
         type: String, //* Cloudinary

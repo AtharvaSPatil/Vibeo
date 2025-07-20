@@ -33,27 +33,31 @@ const registerUser = asyncHandler( async (req, res) => {
     if(existedUser) {
         throw new ApiError(409, "User already Exists");
     }
+    // Some cloudinary issue needs fix
+    const avatarLocalPath = ""
+    const coverImageLocalPath = ""
+    // const avatarLocalPath = req.files?.avatar[0]?.path 
+    // const coverImageLocalPath = req.files?.coverImage[0]?.path
 
-    const avatarLocalPath = req.files?.avatar[0]?.path
-    const coverImageLocalPath = req.files?.coverImage[0]?.path
+    // console.log("avatar path", avatarLocalPath);
+    // if(!avatarLocalPath) {
+    //     throw new ApiError(400, "Avatar path is required");
+    // }
 
-    console.log("avatar path", avatarLocalPath);
-    if(!avatarLocalPath) {
-        throw new ApiError(400, "Avatar path is required");
-    }
-
-    const avatar = await uploadOnCloudinary(avatarLocalPath);
-    const coverImage = await uploadOnCloudinary(coverImageLocalPath);
-    if(!avatar) {
-        throw new ApiError(400, "Avatar is required");
-    }
+    const avatar = "";
+    const coverImage = "";
+    // const avatar = await uploadOnCloudinary(avatarLocalPath);
+    // const coverImage = await uploadOnCloudinary(coverImageLocalPath);
+    // if(!avatar) {
+    //     throw new ApiError(400, "Avatar is required");
+    // }
 
     const user = await User.create({
         fullName,
         email,
         password,
         username: username.toLowerCase(),
-        avatar: avatar.url,
+        avatar: avatar?.url || "",
         coverImage: coverImage?.url || "",
     })
 
