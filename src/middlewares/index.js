@@ -1,3 +1,3 @@
-import { upload } from "./multer.middleware.js";
+import { upload, verifyJwt } from "./multer.middleware.js";
 
-export { upload }
+export { upload, verifyJwt }
